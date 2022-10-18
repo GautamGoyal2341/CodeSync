@@ -1,7 +1,9 @@
 import React from "react";
 import { v4 as uuidV4 } from "uuid";
 import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+    const nevigate = useNavigate();
   const [roomId, setRommId] = React.useState("");
   const [username, setUserName] = React.useState("");
   const createNewRoom = (e) => {
@@ -11,6 +13,24 @@ const Home = () => {
     setRommId(id);
     toast.success('Created a new room');
   };
+
+   const joinRoom = () => {
+    if(!roomId || !username)
+    {
+        toast.error("ROOM ID & USERNAME IS REQUIRED");
+        return;
+    }
+
+    nevigate(`/editor/${roomId}`,{
+        state:{
+            username
+        },
+    })
+      
+
+
+   }
+
   return (
     <div className="homePageWrapper">
       <div className="formWrapper">
@@ -31,7 +51,7 @@ const Home = () => {
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
-          <button className="btn joinBtn">Join</button>
+          <button className="btn joinBtn" onClick={joinRoom}>Join</button>
           <span className="createInfo">
             If you dont have an invite then create &nbsp;
             <a  onClick={createNewRoom} href="" className="createNewBtn">

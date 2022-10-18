@@ -1,5 +1,6 @@
 import React from "react";
 import { v4 as uuidV4 } from "uuid";
+import toast from 'react-hot-toast';
 const Home = () => {
   const [roomId, setRommId] = React.useState("");
   const [username, setUserName] = React.useState("");
@@ -8,6 +9,7 @@ const Home = () => {
 
     const id = uuidV4();
     setRommId(id);
+    toast.success('Created a new room');
   };
   return (
     <div className="homePageWrapper">

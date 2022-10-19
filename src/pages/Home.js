@@ -31,6 +31,13 @@ const Home = () => {
 
    }
 
+   const handelInputEnter = (e) => {
+          if(e.code === 'Enter')
+          {
+            joinRoom();
+          }
+   }
+
   return (
     <div className="homePageWrapper">
       <div className="formWrapper">
@@ -43,6 +50,7 @@ const Home = () => {
             placeholder="ROOM ID"
             value={roomId}
             onChange={(e) => setRommId(e.target.value)}
+            onKeyUp = {handelInputEnter}
           />
           <input
             type="text"
@@ -50,6 +58,7 @@ const Home = () => {
             placeholder="USERNAME"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
+            onKeyUp = {handelInputEnter}
           />
           <button className="btn joinBtn" onClick={joinRoom}>Join</button>
           <span className="createInfo">

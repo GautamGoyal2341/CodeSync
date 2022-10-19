@@ -1,8 +1,11 @@
 import React from 'react'
-
-const Client = () => {
+import Avatar from 'react-avatar'
+const Client = ({username}) => {
   return (
-    <div>Client</div>
+    <div className='client'>
+        <Avatar name={username} size = {50} round = {10} />
+        <span className='username'>{username}</span>
+    </div>
   )
 }
 

@@ -23,8 +23,14 @@ const EditorPage = () => {
             }
           </div>
         </div>
+        <button className="btn copyBtn">Copy Room</button>
+
+        <button className="btn leaveBtn">Leave</button>
+
       </div>
-      <div className="editorwrap"></div>
+      <div className="editorwrap">
+        <Editor/>
+      </div>
     </div>
   );
 };

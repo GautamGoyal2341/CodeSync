@@ -1,10 +1,18 @@
 import React from "react";
 import Client from "../Components/Client";
-import editor from "../Components/editor";
+import Editor from "../Components/Editor";
 const EditorPage = () => {
   const [clients, setClients] = React.useState([
     { socketId: 1, username: "Rakesh k " },
     { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+    { socketId: 2, username: "RJo R " },
+
   ]);
   return (
     <div className="mainWrap">
@@ -24,7 +32,7 @@ const EditorPage = () => {
         <button className="btn leaveBtn">Leave</button>
       </div>
       <div className="editorWrap">
-        <editor />
+      <Editor/>
       </div>
     </div>
   );

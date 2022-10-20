@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Codemirror from 'codemirror'
+const Editor = () => {
+  useEffect(() => {
 
-const editor = () => {
-  return (
-    <div>editor</div>
-  )
+  })
+  return <textarea id = "realtimeEditor"></textarea>
 }
 
-export default editor
+export default Editor

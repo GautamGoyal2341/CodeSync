@@ -4,21 +4,40 @@ import Client from "../Components/Client";
 import Editor from "../Components/Editor";
 import { initSocket } from "../socket";
 import { useLocation } from "react-router-dom";
+import {
+ 
+  useNavigate,
+  Navigate,
+  useParams,
+} from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 const EditorPage = () => {
+  const { roomId } = useParams();
+  const reactNavigator = useNavigate();
 
     const socketRef = useRef(null);
-    const loaction = useLocation();
+
+    const location = useLocation();
+    socketRef.current.on('connect_error', (err) => handleErrors(err));
+    socketRef.current.on('connect_failed', (err) => handleErrors(err));
+
+    function handleErrors(e) {
+        console.log('socket error', e);
+        toast.error('Socket connection failed, try again later.');
+        reactNavigator('/');
+    }
 
     useEffect(() => {
       const init  = async () => {
 
         socketRef.current = await initSocket();
-        // socketRef.current.emit(ACTIONS.JOIN , {
-        //   roomId,
-        //   username: location.state?.username,
+        socketRef.current.emit(ACTIONS.JOIN , {
+          roomId,
+          username: location.state?.username,
 
 
-        // });
+        });
 
       }
     
@@ -38,6 +57,10 @@ const EditorPage = () => {
     { socketId: 2, username: "RJo R " },
 
   ]);
+
+  if (!location.state) {
+    return <Navigate to="/" />;
+}
   return (
     <div className="mainWrap">
       <div className="aside">

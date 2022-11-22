@@ -3,7 +3,7 @@ import { v4 as uuidV4 } from "uuid";
 import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 const Home = () => {
-    const nevigate = useNavigate();
+    const navigate = useNavigate();
   const [roomId, setRommId] = React.useState("");
   const [username, setUserName] = React.useState("");
   const createNewRoom = (e) => {
@@ -21,7 +21,7 @@ const Home = () => {
         return;
     }
 
-    nevigate(`/editor/${roomId}`,{
+    navigate(`/editor/${roomId}`,{
         state:{
             username
         },
@@ -62,11 +62,15 @@ const Home = () => {
           />
           <button className="btn joinBtn" onClick={joinRoom}>Join</button>
           <span className="createInfo">
-            If you dont have an invite then create &nbsp;
-            <a  onClick={createNewRoom} href="" className="createNewBtn">
-              new room
-            </a>
-          </span>
+                        If you don't have an invite then create &nbsp;
+                        <a
+                            onClick={createNewRoom}
+                        
+                            className="createNewBtn"
+                        >
+                            new room
+                        </a>
+                    </span>
         </div>
       </div>
       <footer>

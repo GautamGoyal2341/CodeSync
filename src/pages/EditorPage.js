@@ -81,6 +81,10 @@ async function copyRoomId() {
       console.error(err);
   }
 }
+function leaveRoom() {
+  reactNavigator('/');
+}
+
 
   if (!location.state) {
     return <Navigate to="/" />;

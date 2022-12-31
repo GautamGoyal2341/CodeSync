@@ -74,7 +74,7 @@ const Home = () => {
         </div>
       </div>
       <footer>
-        <h4>Built By Gautam</h4>
+        {/* <h4>Built By Gautam</h4> */}
       </footer>
     </div>
   );
